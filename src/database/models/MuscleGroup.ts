@@ -29,5 +29,5 @@ export class MuscleGroup extends Model<MuscleGroup> {
      * particular `MuscleGroup` instance.
      */
     @BelongsToMany(() => Exercise, () => ExerciseMuscleGroup)
-    exercises!: Array<Exercise & { ExerciseMuscleGroup: ExerciseMuscleGroup }>
+    exercises!: Array<Exercise>
 }

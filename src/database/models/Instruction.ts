@@ -35,5 +35,5 @@ export class Instruction extends Model<Instruction> {
      * reused by multiple exercises.
      */
     @BelongsToMany(() => Exercise, () => ExerciseInstruction)
-    exercises!: Array<Exercise & { ExerciseInstruction: ExerciseInstruction }>
+    exercises!: Array<Exercise>
 }

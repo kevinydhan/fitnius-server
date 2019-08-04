@@ -4,7 +4,7 @@ import { Exercise } from '../Exercise'
 import { Equipment } from '../Equipment'
 
 /**
- * Joins Exercise and Equipment table and creates a many-to-many relationship between the two tables.
+ * Joins `Exercise` and `Equipment` tables and creates a many-to-many relationship between the two tables.
  */
 @Table({ tableName: 'exerciseEquipments' })
 export class ExerciseEquipment extends Model<ExerciseEquipment> {

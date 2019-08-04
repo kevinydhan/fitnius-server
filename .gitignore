@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+
+# Compiled TS/JS files
+*.d.ts
+*.js
+
+# local env files
+.env.local
+.env.*.local
+
+.vscode

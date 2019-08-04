@@ -1,4 +1,4 @@
-import { Table, Model, Column, ForeignKey } from 'sequelize-typescript'
+import { Table, Model, ForeignKey } from 'sequelize-typescript'
 
 import { Exercise } from '../Exercise'
 import { MuscleGroup } from '../MuscleGroup'
@@ -9,10 +9,8 @@ import { MuscleGroup } from '../MuscleGroup'
 @Table({ tableName: 'exerciseMuscleGroups' })
 export class ExerciseMuscleGroup extends Model<ExerciseMuscleGroup> {
     @ForeignKey(() => Exercise)
-    @Column
-    exerciseId!: number
+    exerciseId!: string | number
 
     @ForeignKey(() => MuscleGroup)
-    @Column
-    muscleGroupId!: number
+    muscleGroupId!: string | number
 }

@@ -10,8 +10,9 @@ import { MuscleGroup } from '../MuscleGroup'
  * @relationships - `Exercise`, *many-to-many*
  *                - `MuscleGroup`, *many-to-many*
  *
- * Joins `Exercise` and `MuscleGroup` tables and creates a many-to-many
- * relationship.
+ * Creates a database join table using `Sequelize`. `ExerciseMuscleGroup`
+ * creates a many-to-many relationship between the `Exercise` and
+ * `MuscleGroup`tables.
  */
 @Table({ tableName: 'exerciseMuscleGroups' })
 export class ExerciseMuscleGroup extends Model<ExerciseMuscleGroup> {

@@ -11,8 +11,9 @@ import { Instruction } from '../Instruction'
  * @relationships - `Exercise`, *many-to-many*
  *                - `Instruction`, *many-to-many*
  *
- * Joins `Exercise` and `Instruction` tables and creates a many-to-many
- * relationship.
+ * Creates a database join table using `Sequelize`. `ExerciseInstruction`
+ * creates a many-to-many relationship between the `Exercise` and
+ * `Instruction` tables.
  */
 @Table({ tableName: 'exerciseInstructions' })
 export class ExerciseInstruction extends Model<ExerciseInstruction> {

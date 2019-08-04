@@ -1,7 +1,10 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript'
-import { Unique, AllowNull } from 'sequelize-typescript'
+import { Table, Model, Column, BelongsToMany } from 'sequelize-typescript'
+import { DataType, Unique, AllowNull } from 'sequelize-typescript'
 
-@Table
+import { MuscleGroup } from './MuscleGroup'
+import { ExerciseMuscleGroup } from './joins/ExerciseMuscleGroup'
+
+@Table({ tableName: 'exercises' })
 export class Exercise extends Model<Exercise> {
     @Unique
     @AllowNull(false)
@@ -16,4 +19,9 @@ export class Exercise extends Model<Exercise> {
 
     @Column
     level!: string
+
+    @BelongsToMany(() => MuscleGroup, () => ExerciseMuscleGroup)
+    muscleGroups!: Array<
+        MuscleGroup & { ExerciseMuscleGroup: ExerciseMuscleGroup }
+    >
 }

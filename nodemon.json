@@ -4,6 +4,7 @@
   "ignore": ["src/**/*.spec.ts"],
   "exec": "ts-node src/server/server.ts",
   "env": {
-    "DATABASE_URL": "fitnius-db"
+    "DATABASE_URL": "fitnius-db",
+    "PORT": 3000
   }
 }

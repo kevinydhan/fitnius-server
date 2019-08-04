@@ -4,6 +4,7 @@ const app = express()
 
 import { Exercise } from '../database/models/Exercise'
 import { MuscleGroup } from '../database/models/MuscleGroup'
+import { Equipment } from '../database/models/Equipment'
 
 app.use(express.json())
 
@@ -13,7 +14,9 @@ app.get('/', (req, res, next) => {
 
 app.get('/exercises', async (req, res, next) => {
     try {
-        const exercises = await Exercise.findAll({ include: [MuscleGroup] })
+        const exercises = await Exercise.findAll({
+            include: [MuscleGroup, Equipment]
+        })
         res.json(exercises)
     } catch (err) {
         next(err)

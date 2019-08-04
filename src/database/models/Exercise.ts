@@ -1,7 +1,10 @@
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript'
+import { Table, Column, Model, DataType } from 'sequelize-typescript'
+import { Unique, AllowNull } from 'sequelize-typescript'
 
 @Table
-class Exercise extends Model<Exercise> {
+export class Exercise extends Model<Exercise> {
+    @Unique
+    @AllowNull(false)
     @Column
     name!: string
 
@@ -14,5 +17,3 @@ class Exercise extends Model<Exercise> {
     @Column
     level!: string
 }
-
-export default Exercise

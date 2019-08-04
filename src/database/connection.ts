@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript'
 
-console.log(process.env.DATABASE_URL)
+console.log('DATABASE_URL =', process.env.DATABASE_URL)
 
 const sequelize = new Sequelize({
     dialect: 'postgres',

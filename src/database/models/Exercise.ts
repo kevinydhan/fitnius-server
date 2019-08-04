@@ -7,6 +7,9 @@ import { ExerciseMuscleGroup } from './joins/ExerciseMuscleGroup'
 import { Equipment } from './Equipment'
 import { ExerciseEquipment } from './joins/ExerciseEquipment'
 
+import { Instruction } from './Instruction'
+import { ExerciseInstruction } from './joins/ExerciseInstruction'
+
 /**
  * @tableName `'exercises'`
  * @fields - `name`: `string`
@@ -47,11 +50,28 @@ export class Exercise extends Model<Exercise> {
     @Column
     level!: number
 
+    /**
+     * This field represents the array of `MuscleGroup` instances associated to
+     * a particular `Exercise` instance.
+     */
     @BelongsToMany(() => MuscleGroup, () => ExerciseMuscleGroup)
     muscleGroups!: Array<
         MuscleGroup & { ExerciseMuscleGroup: ExerciseMuscleGroup }
     >
 
+    /**
+     * This field represents the array of `Equipment` instances associated to
+     * a particular `Exercise` instance.
+     */
     @BelongsToMany(() => Equipment, () => ExerciseEquipment)
     equipments!: Array<Equipment & { ExerciseEquipment: ExerciseEquipment }>
+
+    /**
+     * This field represents the array of `Instruction` instances associated to
+     * a particular `Exercise` instance.
+     */
+    @BelongsToMany(() => Instruction, () => ExerciseInstruction)
+    instructions!: Array<
+        Instruction & { ExerciseInstruction: ExerciseInstruction }
+    >
 }

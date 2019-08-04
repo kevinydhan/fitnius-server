@@ -2,11 +2,12 @@
   "name": "fitnius-server",
   "version": "1.0.0",
   "description": "GraphQL API server",
-  "main": "src/server/server.ts",
+  "main": "dist/src/server/server.js",
   "scripts": {
     "build": "node_modules/.bin/tsc -p .",
     "dev": "node_modules/.bin/nodemon",
-    "start": "npm run build && node dist/server/server.js"
+    "postinstall": "npm run build",
+    "start": "node dist/server/server.js"
   },
   "keywords": [],
   "author": "Kevin Han",

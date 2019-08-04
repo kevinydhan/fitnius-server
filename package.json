@@ -5,8 +5,8 @@
   "main": "src/server/server.ts",
   "scripts": {
     "build": "node_modules/.bin/tsc -p .",
-    "start": "npm run build && node dist/server/server.js",
-    "start:dev": "node_modules/.bin/nodemon"
+    "dev": "node_modules/.bin/nodemon",
+    "start": "npm run build && node dist/server/server.js"
   },
   "keywords": [],
   "author": "Kevin Han",

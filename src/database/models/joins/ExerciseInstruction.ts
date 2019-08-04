@@ -1,17 +1,16 @@
 import { Table, Model, Column, ForeignKey } from 'sequelize-typescript'
 
-// Sequelize models
 import { Exercise } from '../Exercise'
 import { Instruction } from '../Instruction'
 
 /**
  * @tableName`'exerciseInstructions'`
- * @fields - `order`: number
- *         - `exerciseId`: uuid
- *         - `instructionId`: uuid
+ * @fields - `order`: `number`
+ *         - `exerciseId`: `uuid`
+ *         - `instructionId`: `uuid`
  *
  * Joins `Exercise` and `Instruction` tables and creates a many-to-many
- * relationship between the two tables.
+ * relationship.
  */
 @Table({ tableName: 'exerciseInstructions' })
 export class ExerciseInstruction extends Model<ExerciseInstruction> {
@@ -24,13 +23,15 @@ export class ExerciseInstruction extends Model<ExerciseInstruction> {
     order!: number
 
     /**
-     * This field represents the `id` field for the `Exercise` instance associated with the particular `Instruction` instance.
+     * This field represents the `id` field for the `Exercise` instance
+     * associated with the particular `Instruction` instance.
      */
     @ForeignKey(() => Exercise)
     exerciseId!: string | number
 
     /**
-     * This field represents the `id` field for the `Instruction` instance associated with the particular `Exercise` instance.
+     * This field represents the `id` field for the `Instruction` instance
+     * associated with the particular `Exercise` instance.
      */
     @ForeignKey(() => Instruction)
     instructionId!: string | number

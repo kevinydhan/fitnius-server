@@ -4,13 +4,26 @@ import { Exercise } from '../Exercise'
 import { Equipment } from '../Equipment'
 
 /**
- * Joins `Exercise` and `Equipment` tables and creates a many-to-many relationship between the two tables.
+ * @tableName`'exerciseEquipments'`
+ * @fields - `exerciseId`: `uuid`
+ *         - `equipmentId`: `uuid`
+ *
+ * Joins `Exercise` and `Equipment` tables and creates a many-to-many
+ * relationship.
  */
 @Table({ tableName: 'exerciseEquipments' })
 export class ExerciseEquipment extends Model<ExerciseEquipment> {
+    /**
+     * This field represents the `id` field for the `Exercise` instance
+     * associated with the particular `Equipment` instance.
+     */
     @ForeignKey(() => Exercise)
     exerciseId!: string | number
 
+    /**
+     * This field represents the `id` field for the `Equipment` instance
+     * associated with the particular `Exercise` instance.
+     */
     @ForeignKey(() => Equipment)
     equipmentId!: string | number
 }

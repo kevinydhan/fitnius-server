@@ -2,9 +2,5 @@
   "watch": ["src"],
   "ext": "ts",
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "ts-node src/server/server.ts",
-  "env": {
-    "DATABASE_URL": "fitnius-db",
-    "PORT": 3000
-  }
+  "exec": "ts-node src/server/server.ts"
 }

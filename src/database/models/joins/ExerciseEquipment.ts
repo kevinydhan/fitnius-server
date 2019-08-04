@@ -7,6 +7,8 @@ import { Equipment } from '../Equipment'
  * @tableName`'exerciseEquipments'`
  * @fields - `exerciseId`: `uuid`
  *         - `equipmentId`: `uuid`
+ * @relationships - `Exercise`, *many-to-many*
+ *                - `Equipment`, *many-to-many*
  *
  * Joins `Exercise` and `Equipment` tables and creates a many-to-many
  * relationship.

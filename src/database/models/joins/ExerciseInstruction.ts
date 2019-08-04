@@ -8,6 +8,8 @@ import { Instruction } from '../Instruction'
  * @fields - `order`: `number`
  *         - `exerciseId`: `uuid`
  *         - `instructionId`: `uuid`
+ * @relationships - `Exercise`, *many-to-many*
+ *                - `Instruction`, *many-to-many*
  *
  * Joins `Exercise` and `Instruction` tables and creates a many-to-many
  * relationship.

@@ -55,19 +55,23 @@ export class Exercise extends Model<Exercise> {
      * a particular `Exercise` instance.
      */
     @BelongsToMany(() => MuscleGroup, () => ExerciseMuscleGroup)
-    muscleGroups!: Array<MuscleGroup>
+    muscleGroups!: Array<
+        MuscleGroup & { ExerciseMuscleGroup: ExerciseMuscleGroup }
+    >
 
     /**
      * This field represents the array of `Equipment` instances associated to
      * a particular `Exercise` instance.
      */
     @BelongsToMany(() => Equipment, () => ExerciseEquipment)
-    equipments!: Array<Equipment>
+    equipments!: Array<Equipment & { ExerciseEquipment: ExerciseEquipment }>
 
     /**
      * This field represents the array of `Instruction` instances associated to
      * a particular `Exercise` instance.
      */
     @BelongsToMany(() => Instruction, () => ExerciseInstruction)
-    instructions!: Array<Instruction>
+    instructions!: Array<
+        Instruction & { ExerciseInstruction: ExerciseInstruction }
+    >
 }

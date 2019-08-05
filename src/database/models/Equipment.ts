@@ -28,5 +28,5 @@ export class Equipment extends Model<Equipment> {
      * particular `Equipment` instance.
      */
     @BelongsToMany(() => Exercise, () => ExerciseEquipment)
-    exercises!: Array<Exercise>
+    exercises!: Array<Exercise & { ExerciseEquipment: ExerciseEquipment }>
 }

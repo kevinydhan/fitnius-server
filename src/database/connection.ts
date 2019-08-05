@@ -26,7 +26,10 @@ const sequelize = new Sequelize({
     database: process.env.DATABASE_URL || 'fitnius-db',
     storage: ':memory:',
     models: [__dirname + '/models', __dirname + '/models' + '/joins'],
-    logging: false
+    logging: false,
+    dialectOptions: {
+        ssl: true
+    }
 })
 
 export default sequelize

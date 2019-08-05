@@ -9,8 +9,13 @@ interface DatabaseCredentials {
 const credentials: DatabaseCredentials = {
     username: '',
     password: '',
-    database: 'fitnus-db'
+    database: 'fitnius-db'
 }
+
+console.log()
+console.log(process.env.DB_USER)
+console.log(process.env.DB_PASSWORD)
+console.log()
 
 if (process.env.NODE_ENV === 'production') {
     ;(credentials.username = process.env.DB_USER),

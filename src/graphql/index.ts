@@ -15,7 +15,7 @@ export default {
     type MuscleGroup {
         id: ID!
         name: String!
-        exercises: [Exercise!]!
+        exercises: [Exercise!]
         createdAt: String
         updatedAt: String
     }

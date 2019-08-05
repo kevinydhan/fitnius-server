@@ -2,9 +2,7 @@ import { Sequelize } from 'sequelize-typescript'
 
 const ssl = process.env.NODE_ENV === 'production'
 
-console.log('DB_HOST =', process.env.DB_HOST)
-console.log('DB_USER =', process.env.DB_USER)
-console.log('DB_PASSWORD =', process.env.DB_PASSWORD)
+console.log('DATABASE_URL =', process.env.DATABASE_URL)
 
 export const connection = new Sequelize({
     dialect: 'postgres',

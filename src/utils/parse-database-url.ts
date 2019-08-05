@@ -43,8 +43,6 @@ const parseDatabaseUrl = (
             database: undefined
         }
 
-    console.log(matches[4] != undefined ? matches[4].split('/') : undefined)
-
     return {
         protocol: matches[1] || undefined,
         username:

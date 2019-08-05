@@ -27,10 +27,7 @@ const optionsDevelopment: SequelizeOptionsDevelopment = {
 
 const options =
     process.env.NODE_ENV === 'production'
-        ? {
-              ...parseDatabaseUrl(process.env.DATABASE_URL)
-              //   dialectOptions: { ssl: true }
-          }
+        ? parseDatabaseUrl(process.env.DATABASE_URL)
         : optionsDevelopment
 
 export default new Sequelize({

@@ -2,7 +2,7 @@
   "name": "fitnius-server",
   "version": "1.0.0",
   "description": "GraphQL API server",
-  "main": "dist/src/server/server.js",
+  "main": "dist/server/server.js",
   "scripts": {
     "build": "tsc",
     "dev": "node_modules/.bin/nodemon",

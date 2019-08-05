@@ -12,5 +12,5 @@
     "lib": ["es6", "dom"]
   },
   "include": ["src/**/*"],
-  "exclude": [".vscode"]
+  "exclude": ["node_modules", ".vscode"]
 }

@@ -4,7 +4,7 @@ import { Exercise } from '../Exercise'
 import { MuscleGroup } from '../MuscleGroup'
 
 /**
- * @tableName`'exerciseMuscleGroups'`
+ * @tableName `'exerciseMuscleGroups'`
  * @fields - `exerciseId`: `uuid`
  *         - `muscleGroupId`: `uuid`
  * @relationships - `Exercise`, *many-to-many*

@@ -1,7 +1,8 @@
 import app from './app'
-import { connection } from '../database/connection'
+import connection from '../database/connection'
 
 const PORT = process.env.PORT || 3000
+
 connection
     .sync()
     .then(() => {

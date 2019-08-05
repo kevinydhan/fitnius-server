@@ -1,14 +1,42 @@
 import { Sequelize } from 'sequelize-typescript'
+import parseDatabaseUrl from '../utils/parse-database-url'
 
-const ssl = process.env.NODE_ENV === 'production'
+/**
+ * This interface represents the options passed to Sequelize in a development
+ * environment.
+ */
+interface SequelizeOptionsDevelopment {
+    database: string | undefined
+}
 
-console.log('DATABASE_URL =', process.env.DATABASE_URL)
+/**
+ * This interface represents the options passed to Sequelize in a production
+ * environment.
+ */
+interface SequelizeOptionsProduction {
+    host: string | undefined
+    database: string | undefined
+    username: string | undefined
+    password: string | undefined
+    dialectOptions: { ssl: boolean }
+}
 
-export const connection = new Sequelize({
+const optionsDevelopment: SequelizeOptionsDevelopment = {
+    database: process.env.DB_NAME
+}
+
+const options =
+    process.env.NODE_ENV === 'production'
+        ? {
+              ...parseDatabaseUrl(process.env.DATABASE_URL),
+              dialectOptions: { ssl: true }
+          }
+        : optionsDevelopment
+
+export default new Sequelize({
     dialect: 'postgres',
     protocol: 'postgres',
-    database: process.env.DATABASE_URL || 'fitnius-db',
     logging: false,
-    dialectOptions: { ssl },
+    ...options,
     models: [__dirname + '/models', __dirname + '/models' + '/joins']
 })

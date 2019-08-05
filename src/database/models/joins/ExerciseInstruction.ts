@@ -4,7 +4,7 @@ import { Exercise } from '../Exercise'
 import { Instruction } from '../Instruction'
 
 /**
- * @tableName`'exerciseInstructions'`
+ * @tableName `'exerciseInstructions'`
  * @fields - `order`: `number`
  *         - `exerciseId`: `uuid`
  *         - `instructionId`: `uuid`

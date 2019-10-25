@@ -1,7 +1,7 @@
 import express from 'express'
 import graphqlHttp from 'express-graphql'
 
-import graphqlOptions from '../graphql'
+import graphqlOptions from '../graphql/v1'
 import { Exercise } from '../database/models/Exercise'
 import { MuscleGroup } from '../database/models/MuscleGroup'
 import { Equipment } from '../database/models/Equipment'

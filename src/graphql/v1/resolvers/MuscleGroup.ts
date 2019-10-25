@@ -1,5 +1,5 @@
-import { MuscleGroup } from '../../database/models/MuscleGroup'
-import { Exercise } from '../../database/models/Exercise'
+import { MuscleGroup } from '../../../database/models/MuscleGroup'
+import { Exercise } from '../../../database/models/Exercise'
 
 /**
  * @name - `query muscleGroups`

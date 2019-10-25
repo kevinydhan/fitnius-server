@@ -21,7 +21,7 @@ export class Equipment extends Model<Equipment> {
     @Unique
     @AllowNull(false)
     @Column
-    name!: string
+    public name!: string
 
     /**
      * This field represents the array of `Exercise` instances associated to a

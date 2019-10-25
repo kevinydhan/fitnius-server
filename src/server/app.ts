@@ -12,8 +12,26 @@ app.use(express.json())
 
 app.use('/graphql', graphqlHttp(graphqlOptions))
 
-app.get('/', (req: express.Request, res: express.Response, next) => {
-    res.send('hello')
+app.get(
+    '/',
+    (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+    ) => {
+        res.send('hello')
+    }
+)
+
+app.get('/muscle-groups', async (req, res, next) => {
+    try {
+        const muscleGroups = await MuscleGroup.findAll({
+            include: [Exercise]
+        })
+        res.json(muscleGroups)
+    } catch (err) {
+        next(err)
+    }
 })
 
 app.get('/exercises', async (req, res, next) => {

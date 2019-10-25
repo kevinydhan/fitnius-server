@@ -16,18 +16,22 @@ import { ExerciseMuscleGroup } from './joins/ExerciseMuscleGroup'
  */
 @Table({ tableName: 'muscleGroups' })
 export class MuscleGroup extends Model<MuscleGroup> {
+    @Column({})
+
     /**
      * This field represents the name of the muscle group.
      */
     @Unique
     @AllowNull(false)
     @Column
-    name!: string
+    public name!: string
 
     /**
      * This field represents the array of `Exercise` instances associated to a
      * particular `MuscleGroup` instance.
      */
     @BelongsToMany(() => Exercise, () => ExerciseMuscleGroup)
-    exercises!: Array<Exercise & { ExerciseMuscleGroup: ExerciseMuscleGroup }>
+    public exercises!: Array<
+        Exercise & { ExerciseMuscleGroup: ExerciseMuscleGroup }
+    >
 }

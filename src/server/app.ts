@@ -12,9 +12,16 @@ app.use(express.json())
 
 app.use('/graphql', graphqlHttp(graphqlOptions))
 
-app.get('/', (req: express.Request, res: express.Response, next) => {
-    res.send('hello')
-})
+app.get(
+    '/',
+    (
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction
+    ) => {
+        res.send('hello')
+    }
+)
 
 app.get('/muscle-groups', async (req, res, next) => {
     try {

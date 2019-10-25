@@ -1,13 +1,18 @@
-export const MuscleGroupSchema = `
-type MuscleGroup {
-    id: ID!
-    name: String!
-    exercises: [Exercise!]!
-}
+/**
+ * Describes the GraphQL schema for a `Exercise` instance.
+ */
+export const Type = `
+    type Exercise {
+        id: ID!
+        name: String!
+        level: Int!
+        rating: Int
+        muscleGroups: [MuscleGroup!]!
+        createdAt: String
+        updatedAt: String
+    }
 `
 
-export const MuscleGroupInput = `
-input MuscleGroupInput {
-    name: String!
-}
+export const Queries = `
+    exercises: [Exercise!]!
 `

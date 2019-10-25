@@ -1,45 +1,35 @@
 import { buildSchema } from 'graphql'
-import { MuscleGroup } from '../database/models/MuscleGroup'
+
+import * as ExerciseSchemas from './schemas/Exercise'
+import * as ExerciseResolvers from './resolvers/Exercise'
+
+import * as MuscleGroupSchemas from './schemas/MuscleGroup'
+import * as MuscleGroupResolvers from './resolvers/MuscleGroup'
+
 export default {
-    graphiql: true,
+    graphiql: process.env.NODE_ENV !== 'production',
     schema: buildSchema(`
-    type Exercise {
-        id: ID!
-        name: String!
-        level: Int!
-        rating: Int
-        createdAt: String
-        updatedAt: String
-    }
+    ${ExerciseSchemas.Type}
 
-    type MuscleGroup {
-        id: ID!
-        name: String!
-        exercises: [Exercise!]
-        createdAt: String
-        updatedAt: String
-    }
-
-    input MuscleGroupInput {
-        name: String!
-    }
+    ${MuscleGroupSchemas.Type}
+    ${MuscleGroupSchemas.Input}
 
     type RootQuery {
-        muscleGroups: [MuscleGroup!]!
+        ${ExerciseSchemas.Queries}
+        ${MuscleGroupSchemas.Queries}
+    }
+
+    type RootMutation {
+        ${MuscleGroupSchemas.Mutations}
     }
 
     schema {
         query: RootQuery
+        mutation: RootMutation
     }
     `),
     rootValue: {
-        muscleGroups: async () => {
-            try {
-                const muscleGroups = await MuscleGroup.findAll()
-                return muscleGroups
-            } catch (err) {
-                throw err
-            }
-        }
+        ...ExerciseResolvers,
+        ...MuscleGroupResolvers
     }
 }

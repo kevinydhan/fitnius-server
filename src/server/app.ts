@@ -19,7 +19,7 @@ app.get(
         res: express.Response,
         next: express.NextFunction
     ) => {
-        res.send('hello')
+        res.send('hello world')
     }
 )
 

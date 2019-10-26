@@ -13,6 +13,7 @@ export const getMuscleGroups = async () => {
         const muscleGroups = await MuscleGroup.findAll({
             include: [Exercise]
         })
+
         return muscleGroups
     } catch (err) {
         throw err
@@ -51,6 +52,7 @@ export const createMuscleGroup = async (
 
     try {
         const newMuscleGroup = await MuscleGroup.create(input)
+
         return newMuscleGroup
     } catch (err) {
         throw err

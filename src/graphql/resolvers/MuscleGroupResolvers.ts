@@ -67,10 +67,13 @@ export const createMuscleGroup = async (
  *   ex. updated field = `{ name: "Quadriceps" }`
  *       existing instance = `{ name: "Quadriceps" }`
  *
+ *
  * - Handle error where no instance with given id is found
+ *
  *
  * - Handle case where character limit exceeds a certain limit
  *   Note: this might need to be handled higher up in the pipeline
+ *
  *
  * - Handle case where updated field is an empty string
  *   Note: this might need to be handled higher up in the pipeline
@@ -151,4 +154,15 @@ export interface DeleteMuscleGroupResolverParameters {
  */
 export const deleteMuscleGroup = async (
     args: DeleteMuscleGroupResolverParameters
-) => {}
+) => {
+    const { id } = args.input
+
+    try {
+        const muscleGroup = await MuscleGroup.destroy({ where: { id } })
+        console.log(muscleGroup)
+
+        return { status: 204, message: 'Instance was successfully deleted.' }
+    } catch (err) {
+        throw err
+    }
+}

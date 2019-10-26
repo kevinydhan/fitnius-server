@@ -5,9 +5,9 @@ export const Type = `
     type Exercise {
         id: ID!
         name: String!
-        level: Int!
+        level: Int
         rating: Int
-        muscleGroups: [MuscleGroup!]!
+        muscleGroups: [MuscleGroup!]
         createdAt: String
         updatedAt: String
     }

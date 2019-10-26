@@ -13,7 +13,7 @@ jobs:
 
       - image: circleci/postgres:9.6-alpine
         environment:
-          PGDATABASE: postgress
+          PGDATABASE: postgres
           PGUSER: postgres
 
     working_directory: ~/repo

@@ -12,6 +12,9 @@ jobs:
           DATABASE_URL: postgres://postgres@localhost/circle_test
 
       - image: circleci/postgres:9.6-alpine
+        environment:
+          PGDATABASE: postgress
+          PGUSER: postgres
 
     working_directory: ~/repo
 

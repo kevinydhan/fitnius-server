@@ -1,4 +1,4 @@
-import { Exercise } from '../../../database/models/Exercise'
+import { Exercise } from '../../database/models/Exercise'
 
 export const exercises = async () => {
     try {

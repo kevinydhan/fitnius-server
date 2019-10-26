@@ -62,6 +62,21 @@ export const createMuscleGroup = async (
 // =============================================================================
 
 /**
+ * **TODO**
+ * - Handle error where updated value overlaps with existing instances
+ *   ex. updated field = `{ name: "Quadriceps" }`
+ *       existing instance = `{ name: "Quadriceps" }`
+ *
+ * - Handle error where no instance with given id is found
+ *
+ * - Handle case where character limit exceeds a certain limit
+ *   Note: this might need to be handled higher up in the pipeline
+ *
+ * - Handle case where updated field is an empty string
+ *   Note: this might need to be handled higher up in the pipeline
+ */
+
+/**
  * This interface describes the input from the user when the user is attempting
  * to update a `MuscleGroup` instance.
  */
@@ -81,7 +96,7 @@ export interface UpdateMuscleGroupResolverParameters {
  * This GraphQL resolver updates a MuscleGroup instance with the provided
  * values.
  *
- * @param {UpdateMuscleGroupInput} args.input - Updated values from the user
+ * @param {UpdateMuscleGroupInput} args.input - Updated values from the user`
  */
 export const updateMuscleGroup = async (
     args: UpdateMuscleGroupResolverParameters

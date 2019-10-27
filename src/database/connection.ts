@@ -7,7 +7,6 @@ import parseDatabaseUrl from '../utils/parse-database-url'
  */
 interface SequelizeOptionsDevelopment {
     database: string | undefined
-    username?: string
 }
 
 /**
@@ -23,8 +22,7 @@ interface SequelizeOptionsProduction {
 }
 
 const optionsDevelopment: SequelizeOptionsDevelopment = {
-    database: process.env.DB_NAME,
-    username: 'root'
+    database: process.env.DB_NAME
 }
 
 const options =

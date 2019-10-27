@@ -12,8 +12,12 @@ jobs:
           DATABASE_URL: postgres://postgres@127.0.0.1/fitnius-db
           PGHOST: 127.0.0.1
           PGUSER: root
+          NODE_ENV: development
 
       - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: fitnius-db
 
     working_directory: ~/repo
 

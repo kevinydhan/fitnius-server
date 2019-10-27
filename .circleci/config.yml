@@ -9,9 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:7.10
         environment:
-          DATABASE_URL: postgres://postgres@localhost/fitnius-adb
-          PGHOST: 127.0.0.1
-          PGUSER: root
+          DATABASE_URL: postgres://postgres@localhost/fitnius-db
 
       - image: circleci/postgres:9.6-alpine
 

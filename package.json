@@ -8,7 +8,9 @@
     "dev": "nodemon",
     "postinstall": "npm run build",
     "start": "node dist/server/server.js",
-    "test": "jest --watch ./test"
+    "test": "jest ./test",
+    "test:dev": "jest --watch ./test"
+
   },
   "keywords": [],
   "author": "Kevin Han",

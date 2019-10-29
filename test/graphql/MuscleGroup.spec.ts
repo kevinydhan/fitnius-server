@@ -32,20 +32,20 @@ const requestToGraphQLAPI = (args: RequestParameters) => {
 // =============================================================================
 
 describe('GraphQL resolvers for MuscleGroup', () => {
-    describe('Query: getMuscleGroups', () => {
-        it('returns a response body where res.body.data.getMuscleGroups is defined', done => {
+    describe('Query: muscleGroups', () => {
+        it('returns a response body where res.body.data.muscleGroups is defined', done => {
             requestToGraphQLAPI({
                 status: 200,
                 query: `
                     query {
-                        getMuscleGroups { id }
+                        muscleGroups { id }
                     }
                 `
             }).end((err, res) => {
                 if (err) return done(err)
 
                 expect(res.body).toBeDefined()
-                expect(res.body.data).toHaveProperty('getMuscleGroups')
+                expect(res.body.data).toHaveProperty('muscleGroups')
                 done()
             })
         })
@@ -55,13 +55,13 @@ describe('GraphQL resolvers for MuscleGroup', () => {
                 status: 200,
                 query: `
                     query {
-                        getMuscleGroups { id }
+                        muscleGroups { id }
                     }
                 `
             }).end((err, res) => {
                 if (err) return done(err)
 
-                expect(res.body.data.getMuscleGroups).toEqual(
+                expect(res.body.data.muscleGroups).toEqual(
                     expect.arrayContaining([])
                 )
                 done()

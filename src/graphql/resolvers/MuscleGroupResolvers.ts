@@ -6,9 +6,11 @@ import { Exercise } from '../../database/models/Exercise'
 // =============================================================================
 
 /**
- * @name - `query muscleGroups`
+ * This GraphQL resolver returns all `MuscleGroup` instances.
+ *
+ * @returns {Array<MuscleGroup>}
  */
-export const getMuscleGroups = async () => {
+export const muscleGroups = async () => {
     try {
         const muscleGroups = await MuscleGroup.findAll({
             include: [Exercise]
@@ -44,6 +46,7 @@ export interface CreateMuscleGroupResolverParameters {
  *
  * @param {CreateMuscleGroupInput} args.input - Values from the user
  *
+ * @returns {MuscleGroup}
  */
 export const createMuscleGroup = async (
     args: CreateMuscleGroupResolverParameters
@@ -121,9 +124,9 @@ export const updateMuscleGroup = async (
          * Else, update the instance with the given values from the user and
          * return the updated instance.
          */
-        if (!muscleGroup)
+        if (!muscleGroup) {
             throw new Error('Cannot find muscle group with given id')
-        else {
+        } else {
             const updatedMuscleGroup = await muscleGroup.update(updatedValues)
             return updatedMuscleGroup
         }
@@ -135,6 +138,11 @@ export const updateMuscleGroup = async (
 // =============================================================================
 // Delete MuscleGroup instance
 // =============================================================================
+
+/**
+ * **TODO**
+ * - Handle case where po
+ */
 
 /**
  * This interface describes the input from the user when the user is attempting
@@ -161,7 +169,6 @@ export const deleteMuscleGroup = async (
 
     try {
         const muscleGroup = await MuscleGroup.destroy({ where: { id } })
-        console.log(muscleGroup)
 
         return { status: 204, message: 'Instance was successfully deleted.' }
     } catch (err) {

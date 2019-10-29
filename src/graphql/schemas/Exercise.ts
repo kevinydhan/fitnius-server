@@ -7,7 +7,7 @@ export const Type = `
         name: String!
         level: Int
         rating: Int
-        muscleGroups: [MuscleGroup!]
+        muscleGroups: [MuscleGroup!]!
         createdAt: String
         updatedAt: String
     }

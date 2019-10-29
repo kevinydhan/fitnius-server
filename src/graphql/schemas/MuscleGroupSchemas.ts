@@ -57,7 +57,7 @@ export const DeleteMuscleGroupInput = `
  * @query `getMuscleGroups`
  */
 export const Queries = `
-    getMuscleGroups: [MuscleGroup!]!
+    muscleGroups: [MuscleGroup!]!
 `
 
 /**

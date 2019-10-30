@@ -24,7 +24,7 @@ const requestToGraphQLAPI = (args: RequestParameters) => {
         .send({ query: args.query })
         .set('Content-Type', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200)
+        .expect(args.status)
 }
 
 // =============================================================================
